@@ -59,6 +59,7 @@ secret:"[scheme://]key[#fragment][,option...]"
 | `secret:"db-pass"`                  | Bare key, uses default provider         |
 | `secret:"awssm://prod/db#password"` | AWS Secrets Manager, extract JSON field |
 | `secret:"env://API_KEY"`            | Environment variable                    |
+| `secret:"k8s://prod/db-creds#host"`| Kubernetes Secret, extract data key     |
 | `secret:"file:///etc/tls/cert.pem"` | File contents                           |
 | `secret:"key,optional"`             | Zero value if missing                   |
 | `secret:"key,version=previous"`     | Specific version                        |
@@ -79,6 +80,7 @@ Bare keys (no scheme) route to the default provider. Keys with a scheme route to
 | `secrets/azkv`        | `azkv`        | Azure Key Vault         | Yes       | `DefaultAzureCredential`, requires `WithVaultURL`                    |
 | `secrets/vault`       | `vault`       | HashiCorp Vault KV v2   | Yes       | `VAULT_ADDR`/`VAULT_TOKEN` from env, mount `"secret"`                |
 | `secrets/onepassword` | `onepassword` | 1Password CLI           | No        | `op` CLI auth                                                        |
+| `secrets/k8s`         | `k8s`         | Kubernetes Secrets      | No        | Standard kubeconfig chain / in-cluster                               |
 | `secrets/env`         | `env`         | Environment variables   | No        |                                                                      |
 | `secrets/file`        | `file`        | Filesystem              | No        |                                                                      |
 | `secrets/literal`     | `literal`     | In-memory map           | Yes       | For testing                                                          |
