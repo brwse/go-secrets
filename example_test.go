@@ -14,8 +14,14 @@ import (
 
 func Example() {
 	// For testing, use literal + env providers.
-	os.Setenv("EXAMPLE_API_KEY", "sk-test-123")
-	defer os.Unsetenv("EXAMPLE_API_KEY")
+	if err := os.Setenv("EXAMPLE_API_KEY", "sk-test-123"); err != nil {
+		log.Fatal(err)
+	}
+	defer func() {
+		if err := os.Unsetenv("EXAMPLE_API_KEY"); err != nil {
+			log.Fatal(err)
+		}
+	}()
 
 	r := secrets.NewResolver(
 		secrets.WithDefault(literal.New(map[string][]byte{
@@ -24,7 +30,11 @@ func Example() {
 		secrets.WithProvider("env", env.New()),
 		secrets.WithProvider("file", file.New()),
 	)
-	defer r.Close()
+	defer func() {
+		if err := r.Close(); err != nil {
+			log.Fatal(err)
+		}
+	}()
 
 	type Config struct {
 		DBHost string `secret:"prod/db#host"`
