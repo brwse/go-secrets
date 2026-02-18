@@ -132,7 +132,7 @@ func (p *Provider) Get(ctx context.Context, key string) ([]byte, error) {
 // The version string is parsed as an integer (Vault KV v2 version numbers).
 // "current" retrieves the latest version.
 // Returns secrets.ErrNotFound (wrapped) if the secret or version does not exist.
-func (p *Provider) GetVersion(ctx context.Context, key string, version string) ([]byte, error) {
+func (p *Provider) GetVersion(ctx context.Context, key, version string) ([]byte, error) {
 	if version == "current" {
 		return p.Get(ctx, key)
 	}

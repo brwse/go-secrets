@@ -15,7 +15,7 @@ type mockSMClient struct {
 	secrets map[string]map[string]string
 }
 
-func (m *mockSMClient) GetSecretValue(_ context.Context, name string, versionStage string) (string, error) {
+func (m *mockSMClient) GetSecretValue(_ context.Context, name, versionStage string) (string, error) {
 	stages, ok := m.secrets[name]
 	if !ok {
 		return "", fmt.Errorf("%w", secrets.ErrNotFound)

@@ -16,7 +16,7 @@ import (
 // Client abstracts the AWS Secrets Manager API.
 // Implement this interface to provide a custom or pre-configured client.
 type Client interface {
-	GetSecretValue(ctx context.Context, name string, versionStage string) (string, error)
+	GetSecretValue(ctx context.Context, name, versionStage string) (string, error)
 }
 
 // ProviderOption configures the awssm Provider.
@@ -82,7 +82,7 @@ func (p *Provider) Get(ctx context.Context, key string) ([]byte, error) {
 // GetVersion retrieves a specific version stage of the secret.
 // Supported versions: "current" (AWSCURRENT), "previous" (AWSPREVIOUS), "pending" (AWSPENDING).
 // Returns secrets.ErrNotFound (wrapped) if the secret or version does not exist.
-func (p *Provider) GetVersion(ctx context.Context, key string, version string) ([]byte, error) {
+func (p *Provider) GetVersion(ctx context.Context, key, version string) ([]byte, error) {
 	stage, ok := versionStage[version]
 	if !ok {
 		return nil, fmt.Errorf("awssm: secret %q: unsupported version %q", key, version)
@@ -99,7 +99,7 @@ type sdkClient struct {
 	sm *secretsmanager.Client
 }
 
-func (c *sdkClient) GetSecretValue(ctx context.Context, name string, versionStage string) (string, error) {
+func (c *sdkClient) GetSecretValue(ctx context.Context, name, versionStage string) (string, error) {
 	input := &secretsmanager.GetSecretValueInput{
 		SecretId:     aws.String(name),
 		VersionStage: aws.String(versionStage),

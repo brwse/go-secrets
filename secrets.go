@@ -24,7 +24,7 @@ type Provider interface {
 // The resolver uses this for Versioned[T] fields and version= tag options.
 type VersionedProvider interface {
 	Provider
-	GetVersion(ctx context.Context, key string, version string) ([]byte, error)
+	GetVersion(ctx context.Context, key, version string) ([]byte, error)
 }
 
 // Versioned holds current and previous values for key rotation.

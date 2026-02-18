@@ -16,7 +16,7 @@ type mockKVClient struct {
 	secrets map[string]map[string]string
 }
 
-func (m *mockKVClient) GetSecret(_ context.Context, name string, version string) (string, error) {
+func (m *mockKVClient) GetSecret(_ context.Context, name, version string) (string, error) {
 	versions, ok := m.secrets[name]
 	if !ok {
 		return "", fmt.Errorf("%w", secrets.ErrNotFound)

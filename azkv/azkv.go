@@ -15,7 +15,7 @@ import (
 
 // Client abstracts the Azure Key Vault secrets API.
 type Client interface {
-	GetSecret(ctx context.Context, name string, version string) (string, error)
+	GetSecret(ctx context.Context, name, version string) (string, error)
 }
 
 // ProviderOption configures the azkv Provider.
@@ -73,7 +73,7 @@ func (p *Provider) Get(ctx context.Context, key string) ([]byte, error) {
 }
 
 // GetVersion retrieves a specific version of the secret.
-func (p *Provider) GetVersion(ctx context.Context, key string, version string) ([]byte, error) {
+func (p *Provider) GetVersion(ctx context.Context, key, version string) ([]byte, error) {
 	v := version
 	if v == "current" {
 		v = ""
@@ -90,7 +90,7 @@ type sdkClient struct {
 	kv *azsecrets.Client
 }
 
-func (c *sdkClient) GetSecret(ctx context.Context, name string, version string) (string, error) {
+func (c *sdkClient) GetSecret(ctx context.Context, name, version string) (string, error) {
 	resp, err := c.kv.GetSecret(ctx, name, version, nil)
 	if err != nil {
 		var respErr *azcore.ResponseError

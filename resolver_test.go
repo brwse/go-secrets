@@ -693,14 +693,14 @@ func TestResolve_OptionalBytesNilWhenAbsent(t *testing.T) {
 
 func TestResolve_AllTypeConversions(t *testing.T) {
 	p := &mockProvider{data: map[string][]byte{
-		"b":    []byte("true"),
-		"i":    []byte("42"),
-		"i64":  []byte("-99"),
-		"u":    []byte("7"),
-		"f64":  []byte("2.718"),
-		"dur":  []byte("1m30s"),
-		"raw":  []byte("binary-data"),
-		"str":  []byte("hello"),
+		"b":   []byte("true"),
+		"i":   []byte("42"),
+		"i64": []byte("-99"),
+		"u":   []byte("7"),
+		"f64": []byte("2.718"),
+		"dur": []byte("1m30s"),
+		"raw": []byte("binary-data"),
+		"str": []byte("hello"),
 	}}
 	r := NewResolver(WithDefault(p))
 
@@ -825,9 +825,9 @@ func TestResolve_ErrorCollectionAllFieldNames(t *testing.T) {
 	r := NewResolver(WithDefault(p))
 
 	type Config struct {
-		Alpha   string `secret:"key-a"`
-		Beta    string `secret:"key-b"`
-		Gamma   string `secret:"key-c"`
+		Alpha string `secret:"key-a"`
+		Beta  string `secret:"key-b"`
+		Gamma string `secret:"key-c"`
 	}
 	var cfg Config
 	err := r.Resolve(context.Background(), &cfg)
@@ -1294,7 +1294,7 @@ func (p *mockVersionedProvider) Get(_ context.Context, key string) ([]byte, erro
 	return v, nil
 }
 
-func (p *mockVersionedProvider) GetVersion(_ context.Context, key string, version string) ([]byte, error) {
+func (p *mockVersionedProvider) GetVersion(_ context.Context, key, version string) ([]byte, error) {
 	vmap, ok := p.versions[key]
 	if !ok {
 		return nil, fmt.Errorf("mock-versioned: %q version %q: %w", key, version, ErrNotFound)

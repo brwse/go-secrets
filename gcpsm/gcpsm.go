@@ -42,7 +42,7 @@ type Provider struct {
 	client  Client
 }
 
-func (p *Provider) resourceName(key string, version string) string {
+func (p *Provider) resourceName(key, version string) string {
 	return fmt.Sprintf("projects/%s/secrets/%s/versions/%s", p.project, key, version)
 }
 
@@ -81,7 +81,7 @@ func (p *Provider) Get(ctx context.Context, key string) ([]byte, error) {
 }
 
 // GetVersion retrieves a specific version of the secret.
-func (p *Provider) GetVersion(ctx context.Context, key string, version string) ([]byte, error) {
+func (p *Provider) GetVersion(ctx context.Context, key, version string) ([]byte, error) {
 	v := version
 	if v == "current" {
 		v = "latest"

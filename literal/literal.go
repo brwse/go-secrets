@@ -50,7 +50,7 @@ func (p *Provider) Get(_ context.Context, key string) ([]byte, error) {
 
 // GetVersion retrieves a specific version of the secret value.
 // Returns secrets.ErrNotFound (wrapped) if the key or version does not exist.
-func (p *Provider) GetVersion(_ context.Context, key string, version string) ([]byte, error) {
+func (p *Provider) GetVersion(_ context.Context, key, version string) ([]byte, error) {
 	if p.versions == nil {
 		return nil, fmt.Errorf("literal: %q version %q: %w", key, version, secrets.ErrNotFound)
 	}

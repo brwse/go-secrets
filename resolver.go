@@ -233,9 +233,9 @@ func (r *Resolver) Resolve(ctx context.Context, dst any) error {
 
 	// Build the set of unique fetch keys.
 	type fetchSpec struct {
-		key      fetchKey
-		fi       *fieldInfo
-		version  string // version to request (empty = use Get, non-empty = use GetVersion)
+		key     fetchKey
+		fi      *fieldInfo
+		version string // version to request (empty = use Get, non-empty = use GetVersion)
 	}
 
 	seen := make(map[string]bool) // fetchKey.String() -> true
