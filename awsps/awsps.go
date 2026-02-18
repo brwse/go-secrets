@@ -10,7 +10,7 @@ import (
 	awsconfig "github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/ssm"
 	ssmtypes "github.com/aws/aws-sdk-go-v2/service/ssm/types"
-	"github.com/jrandolf/secrets"
+	"github.com/brwse/go-secrets"
 )
 
 // Client abstracts the AWS SSM Parameter Store API.

@@ -10,7 +10,7 @@ import (
 	awsconfig "github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/secretsmanager"
 	smtypes "github.com/aws/aws-sdk-go-v2/service/secretsmanager/types"
-	"github.com/jrandolf/secrets"
+	"github.com/brwse/go-secrets"
 )
 
 // Client abstracts the AWS Secrets Manager API.

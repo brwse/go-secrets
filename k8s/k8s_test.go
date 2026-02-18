@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/jrandolf/secrets"
-	"github.com/jrandolf/secrets/k8s"
+	"github.com/brwse/go-secrets"
+	"github.com/brwse/go-secrets/k8s"
 )
 
 // mockClient implements k8s.Client for testing.

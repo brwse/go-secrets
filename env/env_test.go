@@ -5,8 +5,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/jrandolf/secrets"
-	"github.com/jrandolf/secrets/env"
+	"github.com/brwse/go-secrets"
+	"github.com/brwse/go-secrets/env"
 )
 
 func TestGet_ExistingVar(t *testing.T) {

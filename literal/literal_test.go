@@ -5,8 +5,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/jrandolf/secrets"
-	"github.com/jrandolf/secrets/literal"
+	"github.com/brwse/go-secrets"
+	"github.com/brwse/go-secrets/literal"
 )
 
 func TestGet_ExistingKey(t *testing.T) {

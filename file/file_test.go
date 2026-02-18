@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/jrandolf/secrets"
-	"github.com/jrandolf/secrets/file"
+	"github.com/brwse/go-secrets"
+	"github.com/brwse/go-secrets/file"
 )
 
 func TestGet_ExistingFile(t *testing.T) {

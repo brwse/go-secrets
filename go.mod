@@ -1,4 +1,4 @@
-module github.com/jrandolf/secrets
+module github.com/brwse/go-secrets
 
 go 1.25.0
 

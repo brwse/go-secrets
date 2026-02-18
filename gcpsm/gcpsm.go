@@ -8,7 +8,7 @@ import (
 
 	secretmanager "cloud.google.com/go/secretmanager/apiv1"
 	"cloud.google.com/go/secretmanager/apiv1/secretmanagerpb"
-	"github.com/jrandolf/secrets"
+	"github.com/brwse/go-secrets"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )

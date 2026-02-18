@@ -9,7 +9,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/jrandolf/secrets"
+	"github.com/brwse/go-secrets"
 )
 
 // Client abstracts the 1Password CLI for retrieving secrets.

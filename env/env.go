@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/jrandolf/secrets"
+	"github.com/brwse/go-secrets"
 )
 
 // ProviderOption configures the env Provider.

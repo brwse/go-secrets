@@ -5,7 +5,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/jrandolf/secrets"
+	"github.com/brwse/go-secrets"
 )
 
 // ProviderOption configures the literal Provider.

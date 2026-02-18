@@ -10,7 +10,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azsecrets"
-	"github.com/jrandolf/secrets"
+	"github.com/brwse/go-secrets"
 )
 
 // Client abstracts the Azure Key Vault secrets API.

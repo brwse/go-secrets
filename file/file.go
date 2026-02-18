@@ -9,7 +9,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/jrandolf/secrets"
+	"github.com/brwse/go-secrets"
 )
 
 // ProviderOption configures the file Provider.

@@ -19,7 +19,7 @@ Declare secrets as struct fields, resolve them from any combination of providers
 ## Install
 
 ```
-go get github.com/jrandolf/secrets
+go get github.com/brwse/go-secrets
 ```
 
 ## Usage
@@ -59,7 +59,7 @@ secret:"[scheme://]key[#fragment][,option...]"
 | `secret:"db-pass"`                  | Bare key, uses default provider         |
 | `secret:"awssm://prod/db#password"` | AWS Secrets Manager, extract JSON field |
 | `secret:"env://API_KEY"`            | Environment variable                    |
-| `secret:"k8s://prod/db-creds#host"`| Kubernetes Secret, extract data key     |
+| `secret:"k8s://prod/db-creds#host"` | Kubernetes Secret, extract data key     |
 | `secret:"file:///etc/tls/cert.pem"` | File contents                           |
 | `secret:"key,optional"`             | Zero value if missing                   |
 | `secret:"key,version=previous"`     | Specific version                        |

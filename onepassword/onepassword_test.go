@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/jrandolf/secrets"
+	"github.com/brwse/go-secrets"
 )
 
 // mockOPClient implements Client for testing.

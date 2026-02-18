@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/brwse/go-secrets"
 	vaultapi "github.com/hashicorp/vault/api"
-	"github.com/jrandolf/secrets"
 )
 
 // Client abstracts the HashiCorp Vault KV v2 API.
